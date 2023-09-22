@@ -5,6 +5,15 @@ async function buscaEndereco(cep){
     if(consultaCEPConvertida.erro){
         throw Error ('CEP inválido')
     }
+   
+    var cidade = document.querySelector("#cidade")
+    var logradouro = document.querySelector("#endereco")
+    var estado = document.querySelector("#estado")
+
+    cidade.value = consultaCEPConvertida.localidade
+    logradouro.value = consultaCEPConvertida.logradouro
+    estado.value = consultaCEPConvertida.uf
+
     console.log(consultaCEPConvertida)
     return consultaCEPConvertida
 } catch (erro) {
